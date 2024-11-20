@@ -23,7 +23,10 @@ const App = () => {
         let newIndex;
         do {
           newIndex = Math.floor(Math.random() * themes.length);
-        } while (newIndex === index);
+        } while (
+          newIndex === index ||
+          themesVisited[newIndex] >= achievementGoal * 2
+        );
         return newIndex;
       });
 
