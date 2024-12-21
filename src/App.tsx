@@ -4,6 +4,7 @@ import useLocalStorage from './useLocalStorage';
 import { themes } from './data/themes';
 import { instances } from './data/instances';
 import Instance from './components/Instance';
+import Achievement from './components/Achievement';
 
 const App = () => {
   const [themeIndex, setThemeIndex] = useLocalStorage('themeIndex', 0);
@@ -73,17 +74,10 @@ const App = () => {
           <Instance instance={instance} />
         ))}
       </div>
-      <div
-        className={clsx(
-          'fixed bottom-10 right-6 ml-6 rounded-lg px-5 py-3 border-2 border-inherit bg-inherit transition duration-300',
-          { 'translate-y-[calc(100%+2.5rem)]': !achievementVisible },
-        )}
-      >
-        <div className="text-xl font-bold">Achievement unlocked!</div>
-        You saw all Catppuccin colors {achievementGoal / 2}{' '}
-        {achievementGoal / 2 === 1 ? 'time' : 'times'}
-        <span className="text-xl leading-none"> 🥳</span>
-      </div>
+      <Achievement
+        visible={achievementVisible}
+        achievement={achievementGoal / 2}
+      />
     </div>
   );
 };
