@@ -1,7 +1,9 @@
 import clsx from 'clsx';
 import { MouseEvent, useEffect, useState } from 'react';
-import { themes } from './themes';
 import useLocalStorage from './useLocalStorage';
+import { themes } from './data/themes';
+import { instances } from './data/instances';
+import Instance from './components/Instance';
 
 const App = () => {
   const [themeIndex, setThemeIndex] = useLocalStorage('themeIndex', 0);
@@ -55,20 +57,25 @@ const App = () => {
   return (
     <div
       className={clsx(
-        'w-screen h-screen flex flex-col gap-6 justify-center items-center font-mono font-medium transition-colors duration-500',
+        'font-mono font-medium transition-colors duration-500',
         themes[themeIndex],
       )}
     >
-      <h1 className="text-5xl tracking-tight ease-in-out" onClick={onClick}>
-        nylyk
-      </h1>
-      <div className="flex gap-2">
-        not much to see here yet
-        <div className="text-2xl leading-none hover:-scale-x-100">🧐</div>
+      <div className="w-screen h-screen flex flex-col gap-5 justify-center items-center border-inherit">
+        <h1 className="text-5xl tracking-tight ease-in-out" onClick={onClick}>
+          nylyk
+        </h1>
+        <div className="flex gap-2 mb-4">
+          ohh, there is something here now
+          <div className="text-2xl leading-none hover:-scale-x-100">🧐</div>
+        </div>
+        {instances.map((instance) => (
+          <Instance instance={instance} />
+        ))}
       </div>
       <div
         className={clsx(
-          'fixed bottom-10 right-6 ml-6 rounded-lg px-5 py-3 border-2 border-inherit transition duration-300',
+          'fixed bottom-10 right-6 ml-6 rounded-lg px-5 py-3 border-2 border-inherit bg-inherit transition duration-300',
           { 'translate-y-[calc(100%+2.5rem)]': !achievementVisible },
         )}
       >
