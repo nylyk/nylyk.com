@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { MouseEvent, useEffect, useState } from 'react';
-import useLocalStorage from './useLocalStorage';
+import useLocalStorage from './hooks/useLocalStorage';
 import { themes } from './data/themes';
 import { instances } from './data/instances';
 import Instance from './components/Instance';
@@ -70,8 +70,8 @@ const App = () => {
           ohh, there is something here now
           <div className="text-2xl leading-none hover:-scale-x-100">🧐</div>
         </div>
-        {instances.map((instance) => (
-          <Instance instance={instance} />
+        {instances.map((instance, i) => (
+          <Instance instance={instance} key={i} />
         ))}
       </div>
       <Achievement

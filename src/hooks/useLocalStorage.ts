@@ -1,6 +1,9 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState } from 'react';
 
-const useLocalStorage = <T>(key: string, initialValue: T): [T, Dispatch<SetStateAction<T>>] => {
+const useLocalStorage = <T>(
+  key: string,
+  initialValue: T,
+): [T, Dispatch<SetStateAction<T>>] => {
   let init = initialValue;
   const stored = localStorage.getItem(key);
   if (stored) {
@@ -21,13 +24,13 @@ const useLocalStorage = <T>(key: string, initialValue: T): [T, Dispatch<SetState
         const newValue = (s as (v: T) => T)(value);
         localStorage.setItem(key, JSON.stringify(newValue));
         return newValue;
-      })
+      });
     } else {
       localStorage.setItem(key, JSON.stringify(s));
       setValue(s);
     }
-  }
-  
+  };
+
   return [value, setValueAndSave];
 };
 
