@@ -7,10 +7,8 @@ const Instance: FC<{ instance: InstanceType }> = ({ instance }) => {
   const status = useStatus(instance.healthUrl ?? instance.url);
 
   let title = 'unknown status 🧐';
-  if (status === 'ok') {
+  if (status === 'up') {
     title = 'online 😎';
-  } else if (status === 'error') {
-    title = 'received error 😒';
   } else if (status === 'down') {
     title = "it's offline 😢";
   }
@@ -23,15 +21,18 @@ const Instance: FC<{ instance: InstanceType }> = ({ instance }) => {
           <span className="text-lg font-bold">{instance.name}</span>
           <span>{instance.url}</span>
         </div>
-        <div
-          className={clsx('w-[0.85rem] h-[0.85rem] rounded-full shadow', {
-            'bg-green': status === 'ok',
-            'bg-peach': status === 'error',
-            'bg-red': status === 'down',
-            'bg-overlay2': status === 'unknown',
-          })}
-          title={title}
-        />
+        <div className="p-2 group" title={title}>
+          <div
+            className={clsx(
+              'w-[0.85rem] h-[0.85rem] rounded-full shadow group-hover:animate-pulse',
+              {
+                'bg-green': status === 'up',
+                'bg-red': status === 'down',
+                'bg-overlay2': status === 'unknown',
+              },
+            )}
+          />
+        </div>
       </div>
     </a>
   );

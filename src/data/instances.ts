@@ -26,5 +26,6 @@ export const instances: Instance[] = [
     name: 'Send - encrypted file sharing',
     icon: sendIcon,
     url: 'https://send.nylyk.com',
+    healthUrl: 'https://send.nylyk.com/__heartbeat__',
   },
 ];

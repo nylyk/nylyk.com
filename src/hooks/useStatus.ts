@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export type Status = 'ok' | 'error' | 'down' | 'unknown';
+export type Status = 'up' | 'down' | 'unknown';
 
 const useStatus = (url: string): Status => {
   const [status, setStatus] = useState<Status>('unknown');
@@ -12,7 +12,7 @@ const useStatus = (url: string): Status => {
     fetch(url)
       .then((res) => {
         if (!ignore) {
-          setStatus(res.status === 200 ? 'ok' : 'error');
+          setStatus(res.status === 200 ? 'up' : 'down');
         }
       })
       .catch(() => {
