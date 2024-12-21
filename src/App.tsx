@@ -58,21 +58,26 @@ const App = () => {
   return (
     <div
       className={clsx(
-        'font-mono font-medium transition-colors duration-500',
+        'w-screen h-screen flex justify-center items-center font-mono font-medium transition-colors duration-500',
         themes[themeIndex],
       )}
     >
-      <div className="w-screen h-screen flex flex-col gap-5 justify-center items-center border-inherit">
-        <h1 className="text-5xl tracking-tight ease-in-out" onClick={onClick}>
+      <div className="w-screen max-h-screen overflow-y-auto flex flex-col items-center border-inherit">
+        <h1
+          className="mt-8 mb-5 text-5xl tracking-tight ease-in-out"
+          onClick={onClick}
+        >
           nylyk
         </h1>
-        <div className="flex gap-2 mb-4">
+        <div className="mb-10 flex gap-2">
           ohh, there is something here now
           <div className="text-2xl leading-none hover:-scale-x-100">🧐</div>
         </div>
-        {instances.map((instance, i) => (
-          <Instance instance={instance} key={i} />
-        ))}
+        <div className="pb-10 flex flex-col gap-5 border-inherit">
+          {instances.map((instance, i) => (
+            <Instance instance={instance} key={i} />
+          ))}
+        </div>
       </div>
       <Achievement
         visible={achievementVisible}
