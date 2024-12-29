@@ -73,7 +73,7 @@ const App = () => {
           ohh, there is something here now
           <div className="text-2xl leading-none hover:-scale-x-100">🧐</div>
         </div>
-        <div className="pb-10 flex flex-col gap-5 border-inherit">
+        <div className="pb-10 flex flex-col gap-4 sm:gap-5 border-inherit">
           {instances.map((instance, i) => (
             <Instance instance={instance} key={i} />
           ))}
