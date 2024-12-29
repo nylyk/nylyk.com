@@ -3,6 +3,7 @@ import cinnyIcon from '../assets/cinny.svg';
 import searxngIcon from '../assets/searxng.svg';
 import vaultwardenIcon from '../assets/vaultwarden.svg';
 import sendIcon from '../assets/send.svg';
+import ntfyIcon from '../assets/ntfy.svg';
 
 export interface Instance {
   name: string;
@@ -42,5 +43,11 @@ export const instances: Instance[] = [
     icon: sendIcon,
     url: 'https://send.nylyk.com',
     healthUrl: 'https://send.nylyk.com/__heartbeat__',
+  },
+  {
+    name: 'ntfy - Push notifications made easy',
+    icon: ntfyIcon,
+    url: 'https://ntfy.nylyk.com',
+    healthUrl: 'https://ntfy.nylyk.com/v1/health',
   },
 ];

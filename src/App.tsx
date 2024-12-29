@@ -58,8 +58,8 @@ const App = () => {
   return (
     <div
       className={clsx(
-        'w-screen h-screen flex justify-center items-center font-mono font-medium transition-colors duration-500',
-        themes[themeIndex],
+        'w-screen h-screen flex justify-center items-center font-mono font-medium transition-colors duration-[400ms]',
+        themes[themeIndex][0],
       )}
     >
       <div className="w-screen max-h-screen overflow-y-auto flex flex-col items-center border-inherit">
@@ -75,7 +75,11 @@ const App = () => {
         </div>
         <div className="pb-10 flex flex-col gap-4 sm:gap-5 border-inherit">
           {instances.map((instance, i) => (
-            <Instance instance={instance} key={i} />
+            <Instance
+              instance={instance}
+              color={themes[themeIndex][1]}
+              key={i}
+            />
           ))}
         </div>
       </div>
