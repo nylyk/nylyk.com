@@ -1,5 +1,11 @@
 {
+  "m.server": {
+    "base_url": "https://matrix.nylyk.com"
+  },
   "m.homeserver": {
     "base_url": "https://matrix.nylyk.com"
+  },
+  "org.matrix.msc3575.proxy": {
+    "url": "https://matrix.nylyk.com"
   }
 }
