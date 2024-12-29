@@ -8,7 +8,7 @@ const Achievement: FC<{ visible: boolean; achievement: number }> = ({
   return (
     <div
       className={clsx(
-        'fixed bottom-10 right-6 ml-6 rounded-lg px-5 py-3 border-2 border-inherit bg-inherit transition duration-300',
+        'fixed bottom-10 right-6 ml-6 rounded-lg px-5 py-3 border-2 border-inherit bg-inherit transition duration-[400ms]',
         { 'translate-y-[calc(100%+2.5rem)]': !visible },
       )}
     >
