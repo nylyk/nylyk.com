@@ -1,0 +1,9 @@
+{
+  "contacts": [
+    {
+      "email_address": "matrix@nylyk.com",
+      "matrix_id": "@nylyk:nylyk.com",
+      "role": "m.role.admin"
+    }
+  ]
+}
