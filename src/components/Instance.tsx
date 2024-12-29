@@ -56,7 +56,7 @@ const Instance: FC<{ instance: InstanceType; color: string }> = ({
         />
         <div className="flex flex-col gap-1 mr-auto">
           <span className="sm:text-lg font-bold">{instance.name}</span>
-          <span className="text-sm sm:text-base sm:text-text">
+          <span className="text-sm sm:text-[1rem] sm:leading-[1.5rem]">
             {instance.url}
           </span>
         </div>
